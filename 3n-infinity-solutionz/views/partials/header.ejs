@@ -1,0 +1,73 @@
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="<%= company.name %> — Home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 17c0-4.5 3.5-8 8-8 3 0 5 2 5 4.5S19.5 18 17 18s-4.5-1.5-4.5-4 2-4.5 4.5-4.5 8 3.5 8 8-3.5 8-8 8-8-3.5-8-8z"
+            stroke="var(--accent-copper)" stroke-width="1.6" fill="none" />
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">3N Infinity</span>
+        <span class="brand-sub">Solutionz</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a></li>
+        <li class="has-mega">
+          <button class="mega-trigger" id="mega-trigger" aria-expanded="false" aria-controls="mega-menu">
+            Sectors
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="mega-menu" id="mega-menu">
+            <div class="mega-menu-grid">
+              <% divisions.forEach(function(div){ %>
+                <div class="mega-col">
+                  <p class="mega-col-title"><span class="mega-code"><%= div.code %></span> <%= div.name %></p>
+                  <ul>
+                    <% div.sectors.forEach(function(s){ %>
+                      <li>
+                        <a href="/sectors/<%= s.slug %>">
+                          <span class="mega-item-code"><%= s.code %></span>
+                          <span><%= s.shortName %></span>
+                        </a>
+                      </li>
+                    <% }) %>
+                  </ul>
+                </div>
+              <% }) %>
+            </div>
+            <div class="mega-menu-footer">
+              <a href="/sectors">View all 9 sectors →</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/about" class="<%= currentPath === '/about' ? 'active' : '' %>">About</a></li>
+        <li><a href="/contact" class="<%= currentPath === '/contact' ? 'active' : '' %>">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/contact" class="btn btn-primary btn-sm">Get in touch</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li class="mobile-sectors-label">Sectors</li>
+      <% sectors.forEach(function(s){ %>
+        <li class="mobile-sector-link"><a href="/sectors/<%= s.slug %>"><span class="mega-item-code"><%= s.code %></span><%= s.shortName %></a></li>
+      <% }) %>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+</header>

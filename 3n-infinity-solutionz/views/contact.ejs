@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="page-contact">
+  <%- include('partials/header') %>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h1><%= prefillSector ? 'Enquire — ' + prefillSector.name : 'Talk to the right division, directly' %></h1>
+        <p class="hero-lede">
+          <% if (prefillSector) { %>
+            Your enquiry will be routed straight to the <%= prefillSector.shortName %> team.
+          <% } else { %>
+            Tell us which sector you need and we'll route your enquiry to the right team internally.
+          <% } %>
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-body">
+      <div class="container contact-grid">
+        <div class="contact-form-wrap">
+          <% if (typeof submitted !== 'undefined' && submitted) { %>
+            <div class="form-success">
+              <h2>Thanks — we've got it.</h2>
+              <p>Your enquiry has been received. A member of the relevant division will respond within one business day.</p>
+              <a href="/" class="btn btn-ghost">Back to home</a>
+            </div>
+          <% } else { %>
+            <% if (typeof error !== 'undefined' && error) { %>
+              <div class="form-error"><%= error %></div>
+            <% } %>
+            <form action="/contact" method="POST" class="contact-form" id="contact-form">
+              <div class="form-row">
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-row-split">
+                <div class="form-row">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-row">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+              </div>
+
+              <div class="form-row-split">
+                <div class="form-row">
+                  <label for="companyName">Company</label>
+                  <input type="text" id="companyName" name="companyName" />
+                </div>
+                <div class="form-row">
+                  <label for="region">Region</label>
+                  <select id="region" name="region">
+                    <option value="">Select region</option>
+                    <option value="India">India</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="sector">Sector</label>
+                <select id="sector" name="sector">
+                  <option value="">General enquiry</option>
+                  <% sectors.forEach(function(s){ %>
+                    <option value="<%= s.slug %>" <%= (prefillSector && prefillSector.slug === s.slug) ? 'selected' : '' %>><%= s.name %></option>
+                  <% }) %>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg">Send enquiry</button>
+            </form>
+          <% } %>
+        </div>
+
+        <aside class="contact-info">
+          <div class="sidebar-card">
+            <h3>India office</h3>
+            <p><%= company.contact.addressIndia %></p>
+            <p><a href="tel:<%= company.contact.phoneIndia.replace(/\s/g,'') %>"><%= company.contact.phoneIndia %></a></p>
+          </div>
+          <div class="sidebar-card">
+            <h3>UAE office</h3>
+            <p><%= company.contact.addressUAE %></p>
+            <p><a href="tel:<%= company.contact.phoneUAE.replace(/\s/g,'') %>"><%= company.contact.phoneUAE %></a></p>
+          </div>
+          <div class="sidebar-card">
+            <h3>Direct</h3>
+            <p><a href="mailto:<%= company.contact.email %>"><%= company.contact.email %></a></p>
+            <a href="<%= company.contact.whatsapp %>" class="btn btn-ghost btn-block" target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
