@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-depth="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | 3N Infinity Solutionz</title>
+<meta name="description" content="Get in touch with 3N Infinity Solutionz for enquiries across energy, industrial manufacturing, and corporate solutions in India & UAE.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="contact">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Tell Us Which Division You Need</h1>
+      <p>Whether it's a robotic cleaning contract, a bulk supply order, or a hotel amenities programme — send the details and the right team will respond directly.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <form id="enquiryForm" novalidate>
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="company">Company Name *</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+          <div class="field">
+            <label for="email">Business Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="field">
+            <label for="division">Division of Interest *</label>
+            <select id="division" name="division" required>
+              <option value="">Select a division</option>
+              <option value="Energy & Sustainability">Energy &amp; Sustainability</option>
+              <option value="Industrial & Manufacturing">Industrial &amp; Manufacturing</option>
+              <option value="Corporate & Hospitality">Corporate &amp; Hospitality</option>
+              <option value="Not sure / multiple">Not sure / multiple divisions</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Requirement Details *</label>
+            <textarea id="message" name="message" required placeholder="Quantities, site location, timeline, or contract type..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+          <p id="formStatus" class="text-soft" style="margin-top:16px; font-size:13.5px; display:none;"></p>
+        </form>
+      </div>
+
+      <div>
+        <div class="contact-info-card reveal">
+          <h3>Direct Contact</h3>
+          <div class="contact-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.9 2.2z"/></svg>
+            <div><div class="k">Phone / WhatsApp</div><div class="v">+91&nbsp;XXXXX&nbsp;XXXXX &middot; +971&nbsp;XX&nbsp;XXX&nbsp;XXXX</div></div>
+          </div>
+          <div class="contact-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <div><div class="k">Email</div><div class="v">enquiries@3ninfinitysolutionz.com</div></div>
+          </div>
+          <div class="contact-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="k">Offices</div><div class="v">India &amp; United Arab Emirates</div></div>
+          </div>
+          <div class="contact-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><div class="k">Response Time</div><div class="v">Within 1 business day</div></div>
+          </div>
+        </div>
+        <p class="text-soft reveal" style="margin-top:20px; font-size:13.5px;">Prefer to browse first? Review our <a href="energy.html" style="color:var(--ink);text-decoration:underline;">Energy</a>, <a href="industrial.html" style="color:var(--ink);text-decoration:underline;">Industrial</a>, or <a href="corporate.html" style="color:var(--ink);text-decoration:underline;">Corporate</a> divisions before reaching out.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+<script>
+  // Client-side form handling only — this is a static front-end.
+  // To receive real emails, connect this form to a backend/service such as
+  // Formspree, EmailJS, or your own API, then replace the fetch/console.log
+  // below with the actual submission call. See README.md for setup notes.
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('enquiryForm');
+    var status = document.getElementById('formStatus');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      status.style.display = 'block';
+      status.textContent = 'Thank you — your enquiry has been noted. Our team will reach out shortly. (Connect this form to your email/CRM backend — see README.md.)';
+      form.reset();
+    });
+  });
+</script>
+</body>
+</html>
