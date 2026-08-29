@@ -1,41 +1,28 @@
-# 3N Infinity Solutionz — Professional Website
+# 3N Infinity Solutionz — GitHub Website
 
-This package is structured as a **repository-root static website** for Vercel.
+## Upload
+1. Extract this ZIP.
+2. Upload the contents to the root of your GitHub repository.
+3. Keep `index.html` in the repository root.
+4. Enable GitHub Pages from Settings → Pages → Deploy from branch → `main` → `/root`.
 
-## Repository root
-`index.html` must be at the root of the GitHub repository.
+## Structure
+- `index.html` — redesigned corporate landing page
+- `assets/style.css` — responsive styling
+- `assets/script.js` — mobile navigation
+- `about.html`, `solutions.html`, `contact.html` — expected existing pages can be retained/replaced
+- `sectors/` — existing sector pages can be retained
 
-## Pages
-- `/index.html`
-- `/about.html`
-- `/solutions.html`
-- `/contact.html`
-- `/sectors/*.html` (8 sector pages)
+## Design direction
+The homepage uses the UESAC/YUNBAO reference as inspiration for the large editorial hero, technical component-card presentation, dark/light section rhythm and visual hierarchy. It does not copy their code, text or proprietary imagery.
 
-## Navigation
-Header:
-Home · Our Solutions · About Us · Contact Us
+The header is simplified to exactly:
+Home · About Us · Our Solutions (dropdown) · Contact Us
 
-The eight sectors are intentionally **removed from the header** and are presented through **Our Solutions** in the hero and the 4×2 solution grid.
+The existing 3N Infinity logo URL is retained so the current logo is used.
 
-## Contact
-Nithin: +91 9108886123
-Email: info@3ninfinitysolutionz.com
+## Images
+The homepage uses remote Unsplash image URLs for sector imagery. Replace these with your own licensed product/project photos later for best corporate credibility.
 
-## GitHub Desktop
-Your local repository folder should be:
-`/Users/Nikeel/Documents/3N Infinity Solutionz Web`
-
-Copy the contents of this package **into that folder** (not into a nested `3N-Infinity/` folder), then commit and push.
-
-## Vercel
-For the cleanest deployment:
-- Framework Preset: Other
-- Root Directory: `.`
-- Build Command: none
-- Output Directory: none
-
-The root must contain `index.html`.
-
-## Design
-White + dark blue corporate palette, responsive 4×2 sector grid on desktop, 2-column/1-column responsive behavior, local SVG sector artwork, transparent supplied logo.
+## Important
+GitHub Pages is static hosting, so there is no server-side backend in this package. The Contact page should use your existing form/backend, Formspree, Netlify Forms, or a mail/WhatsApp CTA if you need form submission.
